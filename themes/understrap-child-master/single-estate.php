@@ -4,7 +4,7 @@
 
 ?>
 <?php if ( have_posts() ) :  while ( have_posts() ) : the_post();
-	$images = get_field( 'gallery' );
+	$images = explode(',',get_field( 'gallery' ));
 	$meta   = get_post_meta( get_the_ID() );
 ?>
 
@@ -36,15 +36,20 @@
                 </div>
             </div>
 		<?php endif; ?>
-		<?php if ( $images ): ?>
+		<?php
+        if ( $images ): ?>
+
             <h1 class="h3 text-center my-4">Галерея: </h1>
             <div class="row">
 
-				<?php foreach ( $images as $image ): ?>
+				<?php foreach ( $images as $image ):
+                    $img = wp_get_attachment_image_src($image[0],'medium');
+                    ?>
+
                     <div class="col-lg-3 col-md-4 col-6 thumb">
-                        <a data-fancybox="gallery" href="<?php echo $image['url']; ?>">
-                            <img class="img-fluid" src="<?php echo $image['sizes']['thumbnail']; ?>"
-                                 alt="<?php echo $image['alt']; ?>">
+                        <a data-fancybox="gallery" href="<?php echo $img[0]; ?>">
+                            <img class="img-fluid" src="<?php echo $img[0] ?>"
+                                 alt="">
                         </a>
                     </div>
 

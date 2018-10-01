@@ -310,9 +310,11 @@ function ajax_post_estate() {
 			    $gallery[] = $attach_id;
             }
             // добавляем дополнительные фото
-			update_post_meta( $post_id, 'gallery', $gallery );
+
 
 		}
+		$gallery = implode(',',$gallery);
+		update_post_meta( $post_id, 'gallery', $gallery );
 	}
 
 	die();
