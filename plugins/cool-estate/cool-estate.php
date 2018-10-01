@@ -264,7 +264,7 @@ function ajax_post_estate() {
 	$post_data = array(
 		'post_title'   => wp_strip_all_tags( $_POST['post_title'] ),
 		'post_content' => wp_strip_all_tags($_POST['post_content'] ),
-		'post_status'  => 'draft',
+		'post_status'  => 'publish',
 		'post_author'  => $_POST['post_author'],
 		'post_type'    => 'estate'
 
