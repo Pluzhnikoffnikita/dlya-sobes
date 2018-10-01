@@ -42,8 +42,8 @@
             <h1 class="h3 text-center my-4">Галерея: </h1>
             <div class="row">
 
-				<?php foreach ( $images as $image ):
-                    $img = wp_get_attachment_image_src($image[0],'medium');
+				<?php foreach ( $images as $key => $image ):
+                    $img = wp_get_attachment_image_src((int)$image,'medium');
                     ?>
 
                     <div class="col-lg-3 col-md-4 col-6 thumb">
